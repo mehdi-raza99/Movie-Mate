@@ -45,6 +45,8 @@ function App() {
 
   return (
     <>
+      <h1 className='heading'>Search any Movie, Get All the Details!</h1>
+
       <Search setMovieName={setMovieName} />
 
       <div className='Hero'>
