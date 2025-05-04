@@ -1,3 +1,7 @@
+.heading{
+  margin: 20px;
+  letter-spacing: 4px;
+}
 .searchContainer
 {
     margin: 30px 10px;
@@ -9,9 +13,9 @@
 }
 input
 {
-    font-size: 25px;
+    font-size: 20px;
     padding: 20px;
-    border-radius: 30px;
+    border-radius: 20px;
     border: 1px solid black;
     min-width: 40%;
     margin-right: 15px;
