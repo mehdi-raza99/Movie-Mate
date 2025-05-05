@@ -16,12 +16,12 @@ function App() {
       setLoading(true);
       data(movieName)
         .then((responseData) => {
-          const list = responseData.results; // Adjust this if the actual structure is different
+          const list = responseData.results; // responseData consist of an array of results, total pages and other things!
 
-          if (Array.isArray(list)) {
+          if (list && list.length > 0) {    // Making sure that array exist and not empty as well
             const filteredList = list.filter((element) =>
               element.original_language === 'en' &&
-              element.original_title.toLowerCase().includes(movieName.toLowerCase())
+              element.original_title.toLowerCase().includes(movieName.toLowerCase())    //Some results do not have movieName include in the title, thus filtering that!
             );
             setMovieData(filteredList);
             setNoResults(filteredList.length === 0); // Update noResults based on filtered list
@@ -37,9 +37,6 @@ function App() {
         .finally(() => {
           setLoading(false); // Always set loading to false when done
         });
-    } else {
-      setMovieData([]); // Clear movieData if movieName is empty
-      setNoResults(false); // Reset noResults when movieName is empty
     }
   }, [movieName]);
 
